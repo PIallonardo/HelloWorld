@@ -6,4 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The is my simple, very simple brand new job -- Hello ${{ github.actor }}"
-      
+  Second-Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The is my second simple, very simple brand new job -- Hello ${{ github.actor }}"

@@ -2,10 +2,10 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build:
     runs-on: ubuntu-latest
+    timeout-minutes: 2
     steps:
-      - run: echo "🎉 The is my job, Hello ${{ github.actor }}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -17,3 +17,15 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Test:
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - run : echo "Second job is starting - Test"
+      - run : echo "Second job done"
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Test
+    steps:
+      - run: echo "Third job is starting - Deploy"
+      - run: echo "Third job done"

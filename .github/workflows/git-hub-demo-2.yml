@@ -1,0 +1,9 @@
+name: GitHub Actions Demo Nuovo di Pacca
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The is my simple, very simple brand new job -- Hello ${{ github.actor }}"
+      
